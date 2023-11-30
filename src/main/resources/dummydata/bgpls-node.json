@@ -1,0 +1,110 @@
+[
+    {
+        "ls-nlri-type": "bgpls-node",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "nexthop": "192.168.0.1"
+    },
+    {
+        "ls-nlri-type": "bgpls-node",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "nexthop": "192.168.0.1"
+    },
+    {
+        "ls-nlri-type": "bgpls-node",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "nexthop": "192.168.0.1"
+    },
+    {
+        "ls-nlri-type": "bgpls-node",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "nexthop": "192.168.0.1"
+    },
+    {
+        "ls-nlri-type": "bgpls-node",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "nexthop": "192.168.0.1"
+    },
+    {
+        "ls-nlri-type": "bgpls-node",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "nexthop": "192.168.0.1"
+    },
+    {
+        "ls-nlri-type": "bgpls-node",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.8"
+        },
+        "nexthop": "192.168.0.1"
+    },
+    {
+        "ls-nlri-type": "bgpls-node",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.101"
+        },
+        "nexthop": "192.168.0.1"
+    },
+    {
+        "ls-nlri-type": "bgpls-node",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.7"
+        },
+        "nexthop": "192.168.0.1"
+    }
+]

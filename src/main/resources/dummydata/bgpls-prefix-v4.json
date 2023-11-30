@@ -1,0 +1,1723 @@
+[
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.2",
+        "ip-reach-prefix": "192.168.0.2/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.2",
+        "ip-reach-prefix": "192.168.0.2/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.1",
+        "ip-reach-prefix": "192.168.0.1/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.5",
+        "ip-reach-prefix": "192.168.0.5/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.5",
+        "ip-reach-prefix": "192.168.0.5/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "192.168.0.3",
+        "ip-reach-prefix": "192.168.0.3/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.1",
+        "ip-reach-prefix": "192.168.0.1/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.1",
+        "ip-reach-prefix": "192.168.0.1/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "192.168.0.10",
+        "ip-reach-prefix": "192.168.0.10/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.0.68",
+        "ip-reach-prefix": "10.0.0.68/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.1.4",
+        "ip-reach-prefix": "10.0.1.4/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.1.4",
+        "ip-reach-prefix": "10.0.1.4/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "10.0.0.68",
+        "ip-reach-prefix": "10.0.0.68/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.8",
+        "ip-reach-prefix": "10.0.0.8/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.8",
+        "ip-reach-prefix": "10.0.0.8/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.24",
+        "ip-reach-prefix": "10.0.0.24/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.64",
+        "ip-reach-prefix": "10.0.0.64/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.64",
+        "ip-reach-prefix": "10.0.0.64/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.32",
+        "ip-reach-prefix": "10.0.0.32/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.24",
+        "ip-reach-prefix": "10.0.0.24/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.32",
+        "ip-reach-prefix": "10.0.0.32/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.0.60",
+        "ip-reach-prefix": "10.0.0.60/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.0.24",
+        "ip-reach-prefix": "10.0.0.24/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "10.0.0.64",
+        "ip-reach-prefix": "10.0.0.64/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "10.0.0.28",
+        "ip-reach-prefix": "10.0.0.28/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.8",
+        "ip-reach-prefix": "10.0.0.8/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "192.168.0.9",
+        "ip-reach-prefix": "192.168.0.9/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.10",
+        "ip-reach-prefix": "192.168.0.10/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "192.168.0.10",
+        "ip-reach-prefix": "192.168.0.10/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.10",
+        "ip-reach-prefix": "192.168.0.10/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.3",
+        "ip-reach-prefix": "192.168.0.3/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.3",
+        "ip-reach-prefix": "192.168.0.3/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.6",
+        "ip-reach-prefix": "192.168.0.6/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.6",
+        "ip-reach-prefix": "192.168.0.6/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "192.168.0.6",
+        "ip-reach-prefix": "192.168.0.6/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "192.168.0.5",
+        "ip-reach-prefix": "192.168.0.5/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "router-id": "192.168.0.9"
+        },
+        "ip-reachability-tlv": "192.168.1.0",
+        "ip-reach-prefix": "192.168.1.0/24",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 4
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "router-id": "192.168.0.7"
+        },
+        "ip-reachability-tlv": "192.168.2.0",
+        "ip-reach-prefix": "192.168.2.0/24",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 4
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.12",
+        "ip-reach-prefix": "192.168.0.12/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 4
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.11",
+        "ip-reach-prefix": "192.168.0.11/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 4
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "192.168.0.4",
+        "ip-reach-prefix": "192.168.0.4/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.1.0",
+        "ip-reach-prefix": "10.0.1.0/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.1.0",
+        "ip-reach-prefix": "10.0.1.0/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.52",
+        "ip-reach-prefix": "10.0.0.52/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.40",
+        "ip-reach-prefix": "10.0.0.40/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.28",
+        "ip-reach-prefix": "10.0.0.28/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.44",
+        "ip-reach-prefix": "10.0.0.44/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.28",
+        "ip-reach-prefix": "10.0.0.28/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.20",
+        "ip-reach-prefix": "10.0.0.20/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.12",
+        "ip-reach-prefix": "10.0.0.12/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.56",
+        "ip-reach-prefix": "10.0.0.56/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.20",
+        "ip-reach-prefix": "10.0.0.20/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.16",
+        "ip-reach-prefix": "10.0.0.16/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.0.64",
+        "ip-reach-prefix": "10.0.0.64/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.0.32",
+        "ip-reach-prefix": "10.0.0.32/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "10.0.0.60",
+        "ip-reach-prefix": "10.0.0.60/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "10.0.0.32",
+        "ip-reach-prefix": "10.0.0.32/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.36",
+        "ip-reach-prefix": "10.0.0.36/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.48",
+        "ip-reach-prefix": "10.0.0.48/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.7"
+        },
+        "ip-reachability-tlv": "192.168.0.7",
+        "ip-reach-prefix": "192.168.0.7/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.68",
+        "ip-reach-prefix": "10.0.0.68/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.68",
+        "ip-reach-prefix": "10.0.0.68/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.60",
+        "ip-reach-prefix": "10.0.0.60/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.60",
+        "ip-reach-prefix": "10.0.0.60/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.101",
+        "ip-reach-prefix": "192.168.0.101/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.101",
+        "ip-reach-prefix": "192.168.0.101/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "192.168.0.9",
+        "ip-reach-prefix": "192.168.0.9/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.4",
+        "ip-reach-prefix": "192.168.0.4/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.4",
+        "ip-reach-prefix": "192.168.0.4/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.101"
+        },
+        "ip-reachability-tlv": "192.168.0.101",
+        "ip-reach-prefix": "192.168.0.101/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.9",
+        "ip-reach-prefix": "192.168.0.9/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.9",
+        "ip-reach-prefix": "192.168.0.9/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.101"
+        },
+        "ip-reachability-tlv": "10.0.1.4",
+        "ip-reach-prefix": "10.0.1.4/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.101"
+        },
+        "ip-reachability-tlv": "10.0.1.0",
+        "ip-reach-prefix": "10.0.1.0/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "10.0.1.4",
+        "ip-reach-prefix": "10.0.1.4/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.1.0",
+        "ip-reach-prefix": "10.0.1.0/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "10.0.0.8",
+        "ip-reach-prefix": "10.0.0.8/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.8"
+        },
+        "ip-reachability-tlv": "10.0.0.52",
+        "ip-reach-prefix": "10.0.0.52/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.8"
+        },
+        "ip-reachability-tlv": "10.0.0.40",
+        "ip-reach-prefix": "10.0.0.40/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.0.12",
+        "ip-reach-prefix": "10.0.0.12/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.7"
+        },
+        "ip-reachability-tlv": "10.0.0.48",
+        "ip-reach-prefix": "10.0.0.48/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.7"
+        },
+        "ip-reachability-tlv": "10.0.0.36",
+        "ip-reach-prefix": "10.0.0.36/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.56",
+        "ip-reach-prefix": "10.0.0.56/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.16",
+        "ip-reach-prefix": "10.0.0.16/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.4",
+        "ip-reach-prefix": "10.0.0.4/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.52",
+        "ip-reach-prefix": "10.0.0.52/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.48",
+        "ip-reach-prefix": "10.0.0.48/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.44",
+        "ip-reach-prefix": "10.0.0.44/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.12",
+        "ip-reach-prefix": "10.0.0.12/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.4",
+        "ip-reach-prefix": "10.0.0.4/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.40",
+        "ip-reach-prefix": "10.0.0.40/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.36",
+        "ip-reach-prefix": "10.0.0.36/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.0.28",
+        "ip-reach-prefix": "10.0.0.28/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.0.20",
+        "ip-reach-prefix": "10.0.0.20/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "10.0.0.16",
+        "ip-reach-prefix": "10.0.0.16/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "10.0.0.24",
+        "ip-reach-prefix": "10.0.0.24/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "ip-reachability-tlv": "10.0.0.20",
+        "ip-reach-prefix": "10.0.0.20/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.52",
+        "ip-reach-prefix": "10.0.0.52/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.48",
+        "ip-reach-prefix": "10.0.0.48/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.56",
+        "ip-reach-prefix": "10.0.0.56/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.16",
+        "ip-reach-prefix": "10.0.0.16/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "10.0.0.4",
+        "ip-reach-prefix": "10.0.0.4/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.40",
+        "ip-reach-prefix": "10.0.0.40/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.36",
+        "ip-reach-prefix": "10.0.0.36/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.44",
+        "ip-reach-prefix": "10.0.0.44/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.12",
+        "ip-reach-prefix": "10.0.0.12/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "10.0.0.4",
+        "ip-reach-prefix": "10.0.0.4/30",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "192.168.0.6",
+        "ip-reach-prefix": "192.168.0.6/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.7",
+        "ip-reach-prefix": "192.168.0.7/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.7",
+        "ip-reach-prefix": "192.168.0.7/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.2",
+        "ip-reach-prefix": "192.168.0.2/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "ip-reachability-tlv": "192.168.0.5",
+        "ip-reach-prefix": "192.168.0.5/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.8"
+        },
+        "ip-reachability-tlv": "192.168.0.8",
+        "ip-reach-prefix": "192.168.0.8/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 1
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "ip-reachability-tlv": "192.168.0.8",
+        "ip-reach-prefix": "192.168.0.8/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    },
+    {
+        "ls-nlri-type": "bgpls-prefix-v4",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "ip-reachability-tlv": "192.168.0.8",
+        "ip-reach-prefix": "192.168.0.8/32",
+        "nexthop": "192.168.0.1",
+        "ospf-route-type": 2
+    }
+]

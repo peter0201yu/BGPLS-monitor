@@ -1,0 +1,508 @@
+[
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.7"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.50"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.49"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.101"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "interface-address": {
+            "interface-address": "10.0.1.6"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.1.5"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.14"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.13"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.17"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.18"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.7"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.37"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.38"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.101"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "interface-address": {
+            "interface-address": "10.0.1.2"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.1.1"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.8"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.41"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.42"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.8"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.53"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.54"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.13"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.14"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.9"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.10"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.5"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.6"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.101"
+        },
+        "interface-address": {
+            "interface-address": "10.0.1.5"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.1.6"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.101"
+        },
+        "interface-address": {
+            "interface-address": "10.0.1.1"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.1.2"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.7"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.49"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.50"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.8"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.2"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.54"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.53"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.7"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.38"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.37"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.18"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.17"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.21"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.22"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.10"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.9"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.4"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.3"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.22"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.21"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.2"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.0",
+            "router-id": "192.168.0.1"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.6"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.5"
+        }
+    },
+    {
+        "ls-nlri-type": "bgpls-link",
+        "l3-routing-topology": 0,
+        "protocol-id": 3,
+        "local-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.8"
+        },
+        "remote-node-descriptors": {
+            "autonomous-system": 65530,
+            "bgp-ls-identifier": "0",
+            "ospf-area-id": "0.0.0.1",
+            "router-id": "192.168.0.1"
+        },
+        "interface-address": {
+            "interface-address": "10.0.0.42"
+        },
+        "neighbor-address": {
+            "neighbor-address": "10.0.0.41"
+        }
+    }
+]
