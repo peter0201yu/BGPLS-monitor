@@ -6,5 +6,12 @@ public class OSPFLink {
 
     Inet4Address srcInterface;
     Inet4Address destInterface;
-    Attribute attributes;
+    Attribute attributes = new Attribute();
+
+    public OSPFLink(int srcID, int destID, Inet4Address srcInterface, Inet4Address destInterface) {
+        this.srcRouterID = srcID;
+        this.destRouterID = destID;
+        this.srcInterface = srcInterface;
+        this.destInterface = destInterface;
+    }
 }
