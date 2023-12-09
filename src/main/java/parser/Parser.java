@@ -1,5 +1,5 @@
 package parser;
-import models.UpdateMessage;
+import models.bgpls.UpdateMessage;
 
 import java.io.IOException;
 import java.io.InputStream;

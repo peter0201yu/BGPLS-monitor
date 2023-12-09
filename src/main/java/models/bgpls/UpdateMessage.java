@@ -1,4 +1,6 @@
-package models;
+package models.bgpls;
+
+import models.bgpls.NLRI;
 
 import java.util.List;
 import java.util.Map;

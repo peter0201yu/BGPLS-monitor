@@ -1,5 +1,4 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import models.UpdateMessage;
+import models.bgpls.UpdateMessage;
 import parser.exabgp.ExabgpParser;
 
 import java.io.IOException;

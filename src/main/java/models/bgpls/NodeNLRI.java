@@ -1,6 +1,6 @@
-package models;
+package models.bgpls;
 
-import models.descriptors.NodeDescriptor;
+import models.bgpls.descriptors.NodeDescriptor;
 
 public class NodeNLRI extends NLRI {
     public NodeDescriptor descriptor;

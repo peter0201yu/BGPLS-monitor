@@ -1,4 +1,4 @@
-package models;
+package models.bgpls;
 
 public abstract class NLRI {
     public String type;

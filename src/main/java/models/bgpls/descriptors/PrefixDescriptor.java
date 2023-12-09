@@ -1,4 +1,4 @@
-package models.descriptors;
+package models.bgpls.descriptors;
 
 public class PrefixDescriptor {
     public String ospfRouteType;

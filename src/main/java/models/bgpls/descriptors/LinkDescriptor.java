@@ -1,4 +1,4 @@
-package models.descriptors;
+package models.bgpls.descriptors;
 
 public class LinkDescriptor {
     public String ipv4Interface;

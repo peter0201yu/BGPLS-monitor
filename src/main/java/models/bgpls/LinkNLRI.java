@@ -1,7 +1,7 @@
-package models;
+package models.bgpls;
 
-import models.descriptors.NodeDescriptor;
-import models.descriptors.LinkDescriptor;
+import models.bgpls.descriptors.NodeDescriptor;
+import models.bgpls.descriptors.LinkDescriptor;
 
 public class LinkNLRI extends NLRI {
     public NodeDescriptor local;

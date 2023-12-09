@@ -9,10 +9,10 @@ import java.util.Map;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.JsonNode;
-import models.*;
-import models.descriptors.NodeDescriptor;
-import models.descriptors.LinkDescriptor;
-import models.descriptors.PrefixDescriptor;
+import models.bgpls.*;
+import models.bgpls.descriptors.NodeDescriptor;
+import models.bgpls.descriptors.LinkDescriptor;
+import models.bgpls.descriptors.PrefixDescriptor;
 import parser.Parser;
 
 public class ExabgpParser extends Parser {

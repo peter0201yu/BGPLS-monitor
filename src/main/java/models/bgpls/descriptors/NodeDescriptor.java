@@ -1,4 +1,4 @@
-package models.descriptors;
+package models.bgpls.descriptors;
 
 public class NodeDescriptor {
     public int as;
