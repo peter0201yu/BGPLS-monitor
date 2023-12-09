@@ -14,6 +14,7 @@ import models.bgpls.descriptors.NodeDescriptor;
 import models.bgpls.descriptors.LinkDescriptor;
 import models.bgpls.descriptors.PrefixDescriptor;
 import parser.Parser;
+import util.Attribute;
 
 public class ExabgpParser extends Parser {
     @Override
@@ -63,7 +64,7 @@ public class ExabgpParser extends Parser {
         assert nlriJSONs.isArray();
 
         ObjectMapper mapper = new ObjectMapper();
-        Map<String, Object> attributes = mapper.convertValue(attributesJSON, new TypeReference<Map<String, Object>>(){});
+        Attribute attributes = mapper.convertValue(attributesJSON, new TypeReference<Attribute>(){});
         List<NLRI> nlris = new ArrayList();
         for (JsonNode nlriJSON : nlriJSONs) {
             NLRI nlri = getNLRI(nlriJSON);

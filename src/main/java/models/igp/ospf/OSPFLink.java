@@ -1,3 +1,7 @@
+package models.igp.ospf;
+
+import util.Attribute;
+
 import java.net.Inet4Address;
 
 public class OSPFLink {

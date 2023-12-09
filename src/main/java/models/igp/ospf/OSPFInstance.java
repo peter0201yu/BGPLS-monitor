@@ -1,20 +1,22 @@
-import com.fasterxml.jackson.databind.JsonNode;
+package models.igp.ospf;
+
+import models.igp.IGPInstance;
+import util.Attribute;
 
 import java.net.Inet4Address;
 import java.util.HashMap;
+import java.util.Map;
 
 public class OSPFInstance extends IGPInstance {
+    Map<String, OSPFArea> subgraphs;
 
-    HashMap<Integer, OSPFRouter> routers;
-    HashMap<Integer, HashMap<Integer, OSPFLink>> links;
-    HashMap<String, OSPFPrefix> prefixes;
+    HashMap<String, OSPFRouter> routers;
+    HashMap<Pair<String, String>, OSPFLink> links;
+    HashMap<String, Map<String, IGPPrefix>> prefixes;
+
     @Override
-    public void readUpdateMessage(JsonNode message) {
-
-    }
-
-    private void addRouter(int routerID, int areaID, Attribute routerAttributes) {
-        OSPFRouter router = routers.get(routerID);
+    private void addRouter(IGPNode router) {
+        String routerId = router.id;
         if (router == null) {
             // Router doesn't exist
             router = new OSPFRouter(routerID, areaID);
@@ -31,7 +33,8 @@ public class OSPFInstance extends IGPInstance {
         }
     }
 
-    private void addLink(int srcID, int destID, Inet4Address srcInterface, Inet4Address destInterface, Attribute linkAttributes) {
+    @Override
+    public void addLink(int srcID, int destID, Inet4Address srcInterface, Inet4Address destInterface, Attribute linkAttributes) {
         HashMap<Integer, OSPFLink> srcNeighbors = links.get(srcID);
         OSPFLink link;
         if (srcNeighbors == null || srcNeighbors.get(destID) == null) {
@@ -56,6 +59,7 @@ public class OSPFInstance extends IGPInstance {
         }
     }
 
+    @Override
     private void addPrefix(int routerID, int areaID, String prefixStr, Attribute attributes) {
         OSPFPrefix prefix = prefixes.get(prefixStr);
         if (prefix == null) {
