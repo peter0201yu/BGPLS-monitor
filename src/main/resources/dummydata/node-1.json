@@ -1,70 +1,133 @@
-{  
-   "exabgp":"4.0.1",
-   "time":1498264977.29,
-   "host":"ruissalo",
-   "pid":83836,
-   "ppid":60690,
-   "counter":1,
-   "type":"update",
-   "neighbor":{  
-      "address":{  
-         "local":"192.0.2.5",
-         "peer":"192.0.2.79"
-      },
-      "asn":{  
-         "local":"65000",
-         "peer":"65000"
-      },
-      "direction":"in",
-      "message":{  
-         "update":{  
-            "attribute":{  
-               "origin":"igp",
-               "as-path":[  
-                  65000
-               ],
-               "confederation-path":[  
-
-               ],
-               "bgp-ls":{  
-                  "node-flags":{  
-                     "B":0,
-                     "E":0,
-                     "T":0,
-                     "O":0
-                  },
-                  "area-id":"490002",
-                  "local-te-router-id":"192.0.2.88",
-                  "sr-capability-flags":{  
-                     "I":1,
-                     "RSV":0,
-                     "V":0
-                  },
-                  "sids":[  
-                     [  
-                        501,
-                        1000000
-                     ]
-                  ]
-               }
+{
+  "exabgp": "4.0.1",
+  "time": 1584873091.08255,
+  "host": "nehru-virtual-machine",
+  "pid": 15669,
+  "ppid": 28695,
+  "counter": 57,
+  "type": "update",
+  "neighbor": {
+    "address": {
+      "local": "192.168.1.15",
+      "peer": "192.168.0.1"
+    },
+    "asn": {
+      "local": 65530,
+      "peer": 65530
+    },
+    "direction": "in",
+    "message": {
+      "update": {
+        "attribute": {
+          "origin": "igp",
+          "local-preference": 100,
+          "bgp-ls": {
+            "node-flags": {
+              "O": 0,
+              "T": 0,
+              "E": 1,
+              "B": 1,
+              "R": 0,
+              "V": 0,
+              "RSV": 0
             },
-            "announce":{  
-               "bgpls bgp-ls":{  
-                  "192.0.2.52":[  
-                     {  
-                        "ls-nlri-type":1,
-                        "l3-routing-topology":0,
-                        "protocol-id":2,
-                        "node-descriptors":{  
-                           "autonomous-system":65000,
-                           "router-id":"172000160088"
-                        },
-                        "nexthop":"192.0.2.52"
-                     }
-                  ]
-               }
-            }
-         }
+            "sr-capability-flags": {
+              "I": 0,
+              "V": 0,
+              "RSV": 0
+            },
+            "sids": [
+              [
+                8000,
+                16000
+              ]
+            ],
+            "sr-algorithms": [
+              0,
+              1
+            ],
+            "attribute-not-implemented": "1050"
+          }
+        },
+        "announce": {
+          "bgp-ls bgp-ls": {
+            "192.168.0.1": [
+              {
+                "ls-nlri-type": "bgpls-node",
+                "l3-routing-topology": 0,
+                "protocol-id": 3,
+                "node-descriptors": {
+                  "autonomous-system": 65530,
+                  "bgp-ls-identifier": "0",
+                  "ospf-area-id": "0.0.0.1",
+                  "router-id": "192.168.0.2"
+                },
+                "nexthop": "192.168.0.1"
+              },
+              {
+                "ls-nlri-type": "bgpls-node",
+                "l3-routing-topology": 0,
+                "protocol-id": 3,
+                "node-descriptors": {
+                  "autonomous-system": 65530,
+                  "bgp-ls-identifier": "0",
+                  "ospf-area-id": "0.0.0.1",
+                  "router-id": "192.168.0.1"
+                },
+                "nexthop": "192.168.0.1"
+              },
+              {
+                "ls-nlri-type": "bgpls-node",
+                "l3-routing-topology": 0,
+                "protocol-id": 3,
+                "node-descriptors": {
+                  "autonomous-system": 65530,
+                  "bgp-ls-identifier": "0",
+                  "ospf-area-id": "0.0.0.0",
+                  "router-id": "192.168.0.4"
+                },
+                "nexthop": "192.168.0.1"
+              },
+              {
+                "ls-nlri-type": "bgpls-node",
+                "l3-routing-topology": 0,
+                "protocol-id": 3,
+                "node-descriptors": {
+                  "autonomous-system": 65530,
+                  "bgp-ls-identifier": "0",
+                  "ospf-area-id": "0.0.0.0",
+                  "router-id": "192.168.0.3"
+                },
+                "nexthop": "192.168.0.1"
+              },
+              {
+                "ls-nlri-type": "bgpls-node",
+                "l3-routing-topology": 0,
+                "protocol-id": 3,
+                "node-descriptors": {
+                  "autonomous-system": 65530,
+                  "bgp-ls-identifier": "0",
+                  "ospf-area-id": "0.0.0.0",
+                  "router-id": "192.168.0.2"
+                },
+                "nexthop": "192.168.0.1"
+              },
+              {
+                "ls-nlri-type": "bgpls-node",
+                "l3-routing-topology": 0,
+                "protocol-id": 3,
+                "node-descriptors": {
+                  "autonomous-system": 65530,
+                  "bgp-ls-identifier": "0",
+                  "ospf-area-id": "0.0.0.0",
+                  "router-id": "192.168.0.1"
+                },
+                "nexthop": "192.168.0.1"
+              }
+            ]
+          }
+        }
       }
-   }
+    }
+  }
 }
