@@ -1,128 +1,82 @@
-{  
-   "exabgp":"4.0.1",
-   "time":1498265291.09,
-   "host":"ruissalo",
-   "pid":84580,
-   "ppid":60690,
-   "counter":1,
-   "type":"update",
-   "neighbor":{  
-      "address":{  
-         "local":"192.0.2.5",
-         "peer":"192.0.2.79"
-      },
-      "asn":{  
-         "local":"65000",
-         "peer":"65000"
-      },
-      "direction":"in",
-      "message":{  
-         "update":{  
-            "attribute":{  
-               "origin":"igp",
-               "as-path":[  
-                  65000
-               ],
-               "confederation-path":[  
-
-               ],
-               "bgp-ls":{  
-                  "admin-group-mask":[  
-                     0
-                  ],
-                  "maximum-link-bandwidth":125000000.0,
-                  "maximum-reservable-link-bandwidth":125000000.0,
-                  "unreserved-bandwidth":[  
-                     125000000.0,
-                     125000000.0,
-                     125000000.0,
-                     125000000.0,
-                     125000000.0,
-                     125000000.0,
-                     125000000.0,
-                     125000000.0
-                  ],
-                  "te-metric":10,
-                  "igp-metric":10,
-                  "sr-adj-flags":{  
-                     "B":0,
-                     "F":0,
-                     "L":1,
-                     "P":0,
-                     "S":0,
-                     "V":1,
-                     "RSV":0
-                  },
-                  "sids":[  
-                     299808
-                  ],
-                  "sr-adj-weight":0
-               }
+{
+  "exabgp": "4.0.1",
+  "time": 1584873090.9117177,
+  "host": "nehru-virtual-machine",
+  "pid": 15669,
+  "ppid": 28695,
+  "counter": 1,
+  "type": "update",
+  "neighbor": {
+    "address": {
+      "local": "192.168.1.15",
+      "peer": "192.168.0.1"
+    },
+    "asn": {
+      "local": 65530,
+      "peer": 65530
+    },
+    "direction": "in",
+    "message": {
+      "update": {
+        "attribute": {
+          "origin": "igp",
+          "local-preference": 100,
+          "bgp-ls": {
+            "local-te-router-ids": [
+              "192.168.0.7"
+            ],
+            "maximum-link-bandwidth": 125000000.0,
+            "te-metric": 1,
+            "igp-metric": 1,
+            "shared-risk-link-groups": [
+              10
+            ],
+            "sr-adj-flags": {
+              "F": 1,
+              "B": 1,
+              "V": 1,
+              "L": 0,
+              "S": 0,
+              "P": 0,
+              "RSV": 0
             },
-            "announce":{  
-               "bgpls bgp-ls":{  
-                  "192.0.2.52":[  
-                     {  
-                        "ls-nlri-type":2,
-                        "l3-routing-topology":0,
-                        "protocol-id":2,
-                        "local-node-descriptors":{  
-                           "autonomous-system":65000,
-                           "router-id":"172000160002"
-                        },
-                        "remote-node-descriptors":{  
-                           "autonomous-system":65000,
-                           "router-id":"172000160001"
-                        },
-                        "interface-address":{  
-                           "interface-address":"192.0.2.25"
-                        },
-                        "neighbor-address":{  
-                           "neighbor-address":"192.0.2.24"
-                        }
-                     },
-                     {  
-                        "ls-nlri-type":2,
-                        "l3-routing-topology":0,
-                        "protocol-id":2,
-                        "local-node-descriptors":{  
-                           "autonomous-system":65000,
-                           "router-id":"172000160001"
-                        },
-                        "remote-node-descriptors":{  
-                           "autonomous-system":65000,
-                           "router-id":"172000160002"
-                        },
-                        "interface-address":{  
-                           "interface-address":"192.0.2.24"
-                        },
-                        "neighbor-address":{  
-                           "neighbor-address":"192.0.2.25"
-                        }
-                     },
-                     {  
-                        "ls-nlri-type":2,
-                        "l3-routing-topology":0,
-                        "protocol-id":2,
-                        "local-node-descriptors":{  
-                           "autonomous-system":65000,
-                           "router-id":"172000160033"
-                        },
-                        "remote-node-descriptors":{  
-                           "autonomous-system":65000,
-                           "router-id":"172000160001"
-                        },
-                        "interface-address":{  
-                           "interface-address":"192.0.2.9"
-                        },
-                        "neighbor-address":{  
-                           "neighbor-address":"192.0.2.8"
-                        }
-                     }
-                  ]
-               }
-            }
-         }
+            "sids": [],
+            "undecoded-sids": [
+              "0x005DC3"
+            ],
+            "sr-adj-weight": 0
+          }
+        },
+        "announce": {
+          "bgp-ls bgp-ls": {
+            "192.168.0.1": [
+              {
+                "ls-nlri-type": "bgpls-link",
+                "l3-routing-topology": 0,
+                "protocol-id": 3,
+                "local-node-descriptors": {
+                  "autonomous-system": 65530,
+                  "bgp-ls-identifier": "0",
+                  "ospf-area-id": "0.0.0.1",
+                  "router-id": "192.168.0.7"
+                },
+                "remote-node-descriptors": {
+                  "autonomous-system": 65530,
+                  "bgp-ls-identifier": "0",
+                  "ospf-area-id": "0.0.0.1",
+                  "router-id": "192.168.0.2"
+                },
+                "interface-address": {
+                  "interface-address": "10.0.0.50"
+                },
+                "neighbor-address": {
+                  "neighbor-address": "10.0.0.49"
+                }
+              }
+            ]
+          }
+        }
       }
-   }
+    }
+  }
 }
