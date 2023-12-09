@@ -1,5 +1,4 @@
 package models.descriptors;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class NodeDescriptor {
     public int as;

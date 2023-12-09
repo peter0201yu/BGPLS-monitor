@@ -75,6 +75,7 @@ public class ExabgpParser extends Parser {
         updateMessage.nlris = nlris;
         return updateMessage;
     }
+
     private NLRI getNLRI(JsonNode nlriJSON) {
 
         String type = nlriJSON.get("ls-nlri-type").asText();
