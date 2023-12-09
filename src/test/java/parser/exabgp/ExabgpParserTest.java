@@ -29,7 +29,7 @@ class ExabgpParserTest {
             // 5 bgp-ls attributes
             assertEquals(5, messages.get(0).attributes.size());
         } catch (IOException e) {
-            System.out.println("boo hoo");
+            assertTrue(false);
         }
     }
 
@@ -45,7 +45,7 @@ class ExabgpParserTest {
             assertEquals("10.0.0.50", nlri.descriptor.ipv4Interface);
             assertEquals(1, messages.get(0).attributes.get("igp-metric"));
         } catch (IOException e) {
-            System.out.println("boo hoo");
+            assertTrue(false);
         }
     }
 
@@ -62,7 +62,7 @@ class ExabgpParserTest {
             assertEquals(32, nlri.descriptor.prefixLength);
             assertEquals(1, messages.get(0).attributes.get("prefix-metric"));
         } catch (IOException e) {
-            System.out.println("boo hoo");
+            assertTrue(false);
         }
     }
 }
