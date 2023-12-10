@@ -1,85 +1,121 @@
 package models.igp.ospf;
 
+import models.bgpls.LinkNLRI;
+import models.bgpls.NLRI;
+import models.bgpls.NodeNLRI;
+import models.bgpls.PrefixNLRI;
 import models.igp.IGPInstance;
 import util.Attribute;
+import util.Pair;
 
-import java.net.Inet4Address;
 import java.util.HashMap;
 import java.util.Map;
 
 public class OSPFInstance extends IGPInstance {
-    Map<String, OSPFArea> subgraphs;
-
-    HashMap<String, OSPFRouter> routers;
-    HashMap<Pair<String, String>, OSPFLink> links;
-    HashMap<String, Map<String, IGPPrefix>> prefixes;
+    public Map<String, OSPFRouter> routers;
+    public Map<Pair<String, String>, OSPFLink> links;
+    public Map<Pair<String, String>, OSPFPrefix> prefixes;
+    public Map<String, OSPFArea> subgraphs;
+    public OSPFInstance() {
+        routers = new HashMap<>();
+        links = new HashMap<>();
+        prefixes = new HashMap<>();
+        subgraphs = new HashMap<>();
+    }
 
     @Override
-    private void addRouter(IGPNode router) {
-        String routerId = router.id;
+    public void handleNLRI(Attribute attribute, NLRI nlri) {
+        switch (nlri.type) {
+            case "bgpls-node":
+                addNode(attribute, (NodeNLRI) nlri);
+                break;
+            case "bgpls-link":
+                addLink(attribute, (LinkNLRI) nlri);
+                break;
+            case "bgpls-prefix-v4":
+                addPrefix(attribute, (PrefixNLRI) nlri);
+                break;
+            default:
+                System.out.println("ERROR: OSFPInstance cannot parse this type of NLRI");
+                return;
+        }
+        // TODO: handle unreach stuff
+    }
+
+    private void addNode(Attribute attributes, NodeNLRI nlri) {
+        String routerId = nlri.descriptor.routerId;
+        OSPFRouter router = routers.get(routerId);
         if (router == null) {
-            // Router doesn't exist
-            router = new OSPFRouter(routerID, areaID);
-            routers.put(routerID, router);
-        } else {
-            // Router already exists
-            router.attributes.putAll(routerAttributes);
-            router.areaIDs.add(areaID);
+            router = new OSPFRouter(routerId);
+            routers.put(routerId, router);
         }
 
-        // Update attributes
-        if (routerAttributes != null) {
-            router.attributes.putAll(routerAttributes);
-        }
-    }
+        if (nlri.descriptor.ospfAreaId != null) {
+            // Add areaId to list of areaIds in router
+            String areaId = nlri.descriptor.ospfAreaId;
+            router.addArea(areaId);
 
-    @Override
-    public void addLink(int srcID, int destID, Inet4Address srcInterface, Inet4Address destInterface, Attribute linkAttributes) {
-        HashMap<Integer, OSPFLink> srcNeighbors = links.get(srcID);
-        OSPFLink link;
-        if (srcNeighbors == null || srcNeighbors.get(destID) == null) {
-            // Link doesn't exist
-
-            // 1. Create new link
-            link = new OSPFLink(srcID, destID, srcInterface, destInterface);
-
-            // 2. Add link to links
-            if (srcNeighbors == null) {
-                srcNeighbors = new HashMap<Integer, OSPFLink>();
-                links.put(srcID, srcNeighbors);
+            // Add node to subgraph
+            OSPFArea area = subgraphs.get(areaId);
+            if (area == null) {
+                area = new OSPFArea();
+                subgraphs.put(areaId, area);
             }
-            srcNeighbors.put(destID, link);
-        } else {
-            // Link already exists
-            link = srcNeighbors.get(destID);
+            area.addNode(routerId);
+        }
+        router.setAttributes(attributes);
+    }
+
+    private void addLink(Attribute attributes, LinkNLRI nlri) {
+        Pair<String, String> linkKey = new Pair<>(nlri.local.routerId, nlri.remote.routerId);
+        OSPFLink link = links.get(linkKey);
+        if (link == null) {
+            link = new OSPFLink(
+                    nlri.local.routerId,
+                    nlri.remote.routerId,
+                    nlri.descriptor.interfaceAddress,
+                    nlri.descriptor.neighborAddress
+            );
+            links.put(linkKey, link);
         }
 
-        if (linkAttributes != null) {
-            link.attributes.putAll(linkAttributes);
+        link.setAttributes(attributes);
+
+        if (nlri.local.ospfAreaId != null && nlri.remote.ospfAreaId != null && nlri.local.ospfAreaId.equals(nlri.remote.ospfAreaId)) {
+            // Add edge to subgraph
+            String areaId = nlri.local.ospfAreaId;
+            OSPFArea area = subgraphs.get(areaId);
+            if (area != null) {
+                area.addEdge(nlri.local.routerId, nlri.remote.routerId);
+            }
         }
     }
 
-    @Override
-    private void addPrefix(int routerID, int areaID, String prefixStr, Attribute attributes) {
-        OSPFPrefix prefix = prefixes.get(prefixStr);
+    private void addPrefix(Attribute attributes, PrefixNLRI nlri) {
+        String prefixStr = nlri.descriptor.ipPrefix + '/' + nlri.descriptor.prefixLength;
+        Pair<String, String> prefixKey = new Pair<>(prefixStr, nlri.local.routerId);
+        OSPFPrefix prefix = prefixes.get(prefixKey);
         if (prefix == null) {
-            // Prefix doesn't exist
-
             prefix = new OSPFPrefix();
-            prefixes.put(prefixStr, prefix);
+            prefixes.put(prefixKey, prefix);
         }
 
-        prefix.routerIDToAttributes.put(routerID, attributes);
-        addRouter(routerID, areaID, null); // Create router if doesn't exist
-        routers.get(routerID).reachablePrefixes.add(prefixStr);
+        prefix.setAttributes(attributes);
 
         // TODO: Equivalence Class Handling
     }
 
-    private void removeRouter(int routerID) {
-        // TODO 1: remove router from routers
-        // TODO 2: remove router from links
+    private void removeNode(String routerId) {
+        routers.remove(routerId);
     }
 
+    private void removeLink(String srcId, String destId) {
+        Pair<String, String> linkKey = new Pair<>(srcId, destId);
+        links.remove(linkKey);
+    }
 
+    private void removePrefix(String prefix, String routerId) {
+        Pair<String, String> prefixKey = new Pair<>(prefix, routerId);
+        prefixes.remove(prefixKey);
+    }
 }

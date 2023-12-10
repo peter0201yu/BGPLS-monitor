@@ -1,21 +1,22 @@
 package models.igp.ospf;
 
+import models.igp.IGPLink;
 import util.Attribute;
 
-import java.net.Inet4Address;
+import java.net.InetAddress;
 
-public class OSPFLink {
-    int srcRouterID;
-    int destRouterID;
+public class OSPFLink extends IGPLink {
+    public InetAddress srcInterface;
+    public InetAddress destInterface;
+    public Attribute attributes;
 
-    Inet4Address srcInterface;
-    Inet4Address destInterface;
-    Attribute attributes = new Attribute();
+    public OSPFLink(String srcId, String destId, InetAddress interfaceAddress, InetAddress neighborAddress) {
+        super(srcId, destId);
+        this.srcInterface = interfaceAddress;
+        this.destInterface = neighborAddress;
+    }
 
-    public OSPFLink(int srcID, int destID, Inet4Address srcInterface, Inet4Address destInterface) {
-        this.srcRouterID = srcID;
-        this.destRouterID = destID;
-        this.srcInterface = srcInterface;
-        this.destInterface = destInterface;
+    public void setAttributes(Attribute attributes) {
+        this.attributes = attributes;
     }
 }

@@ -1,18 +1,18 @@
 package models.igp;
 
+import models.bgpls.LinkNLRI;
+import models.bgpls.NLRI;
+import models.bgpls.NodeNLRI;
+import models.bgpls.PrefixNLRI;
+import util.Attribute;
 import util.Pair;
 
 import java.util.Map;
 
 public abstract class IGPInstance {
-    Map<String, RoutingGraph> subgraphs;
-    Map<String, IGPNode> routers;
-    Map<Pair<String, String>, IGPLink> links;
-    Map<String, Map<String, IGPPrefix>> prefixes;
-    public abstract void addNode(IGPNode router);
-    public abstract void addLink(IGPLink router);
-    public abstract void addPrefix(IGPPrefix prefix);
-    public abstract void removeNode(String routerId);
-    public abstract void removeLink(String srcId, String destId);
-    public abstract void removePrefix(String prefix, String routerId);
+    public Map<String, IGPNode> routers;
+    public Map<Pair<String, String>, IGPLink> links;
+    public Map<Pair<String, String>, IGPPrefix> prefixes;
+    public Map<String, RoutingGraph> subgraphs;
+    public abstract void handleNLRI(Attribute attributes, NLRI nlri);
 }

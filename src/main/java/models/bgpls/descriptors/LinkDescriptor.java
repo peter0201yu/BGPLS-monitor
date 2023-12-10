@@ -1,6 +1,8 @@
 package models.bgpls.descriptors;
 
+import java.net.InetAddress;
+
 public class LinkDescriptor {
-    public String ipv4Interface;
-    public String ipv4Neighbor;
+    public InetAddress interfaceAddress;
+    public InetAddress neighborAddress;
 }

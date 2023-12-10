@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -42,7 +43,7 @@ class ExabgpParserTest {
             List<UpdateMessage> messages = parser.readMessage(inputStream);
             // downcast
             LinkNLRI nlri = (LinkNLRI) messages.get(0).nlris.get(0);
-            assertEquals("10.0.0.50", nlri.descriptor.ipv4Interface);
+            assertEquals(InetAddress.getByName("10.0.0.14"), nlri.descriptor.interfaceAddress);
             assertEquals(1, messages.get(0).attributes.get("igp-metric"));
         } catch (IOException e) {
             assertTrue(false);
