@@ -1,27 +1,15 @@
 package models.igp.ospf;
 
 import models.igp.RoutingGraph;
+import util.Pair;
 
 import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.PriorityQueue;
-import java.util.Set;
+import java.util.*;
 
 public class OSPFArea extends RoutingGraph {
     public String areaId;
     public boolean isBackbone;
     public HashMap<String, OSPFShortestPathTree> areaBorderRouters;
-
-    // This stores the cost of each link:
-    // srcInterfaceId => (dstInterfaceId => IGPMetric)
-    public HashMap<String, HashMap<String, Float>> IGPMetricCosts;
-
-    // Create these two maps for quick lookup
-    public HashMap<String, ArrayList<String>> routerToInterfaces;
-    public HashMap<String, String> interfaceToRouter;
 
     public OSPFArea(String _areaId, boolean _isBackbone) {
         super();
@@ -35,44 +23,76 @@ public class OSPFArea extends RoutingGraph {
     // ---------------------------------------------
     @Override
     public void addNode(String nodeId) {
-        nodes.add(nodeId);
+        nodesToInterfaces.putIfAbsent(nodeId, new HashSet<>());
     }
 
     @Override
-    public void addEdge(String srcId, InetAddress srcAddress, String destId, InetAddress destAddress) {
-        assert(nodes.contains(srcId));
-        assert(nodes.contains(destId));
+    public void addEdge(String srcId, InetAddress srcAddress, String destId, InetAddress destAddress, Float metric) {
+        assert(nodesToInterfaces.containsKey(srcId));
+        assert(nodesToInterfaces.containsKey(destId));
 
+        String srcIp = srcAddress.getHostAddress();
+        String destIp = destAddress.getHostAddress();
+
+        // Keep track of a node's interfaces
+        nodesToInterfaces.get(srcId).add(srcIp);
+        nodesToInterfaces.get(destId).add(destIp);
+
+        // Map interfaces to routers
+        interfaceToRouter.put(srcIp, srcId);
+        interfaceToRouter.put(destIp, destId);
+
+        // Add edges
         edges.putIfAbsent(srcId, new HashSet<>());
         Set<String> neighbors = edges.get(srcId);
         neighbors.add(destId);
+
+        // Add metric
+        edgeCosts.putIfAbsent(srcIp, new HashMap<>());
+        Map<String, Float> costs = edgeCosts.get(srcIp);
+        costs.put(destIp, metric);
     }
 
     @Override
     public void removeNode(String nodeId) {
-        assert(nodes.contains(nodeId));
+        assert(nodesToInterfaces.containsKey(nodeId));
 
-        nodes.remove(nodeId);
+        // Remove mapping from its interfaces
+        for (String interfaceId : nodesToInterfaces.get(nodeId)) {
+            interfaceToRouter.remove(interfaceId);
+        }
 
+        // Remove edge costs of outgoing edges
+        edgeCosts.remove(nodeId);
         // Remove outgoing edges
         edges.remove(nodeId);
 
-        // Remove incoming edges
+        // Remove incoming edges and edge costs of incoming edges
         for (String srcId : edges.keySet()) {
             Set<String> neighbors = edges.get(srcId);
-            if (neighbors.contains(nodeId)) {
-                neighbors.remove(nodeId);
-            }
+            neighbors.remove(nodeId);
+            Map<String, Float> costs = edgeCosts.get(srcId);
+            costs.remove(nodeId);
         }
+
+        // Remove node
+        nodesToInterfaces.remove(nodeId);
+
+        // Remove if abr
+        areaBorderRouters.remove(nodeId);
     }
 
     @Override
     public void removeEdge(String srcId, String destId) {
-        assert(nodes.contains(srcId));
-        assert(nodes.contains(destId));
+        assert(nodesToInterfaces.containsKey(srcId));
+        assert(nodesToInterfaces.containsKey(destId));
 
+        // Remove edge
         Set<String> neighbors = edges.get(srcId);
         neighbors.remove(destId);
+        // Remove edge cost
+        Map<String, Float> costs = edgeCosts.get(srcId);
+        costs.remove(destId);
     }
 
     // ---------------------------------------------
@@ -92,7 +112,7 @@ public class OSPFArea extends RoutingGraph {
         });
 
         // Initialize distances
-        for (String routerId : routerToInterfaces.keySet()) {
+        for (String routerId : nodesToInterfaces.keySet()) {
             distances.put(routerId, Float.MAX_VALUE);
             previous.put(routerId, null);
         }
@@ -111,13 +131,13 @@ public class OSPFArea extends RoutingGraph {
             }
 
             // Iterate through adjacent routers & interfaces, update distances if a shorter path is found
-            for (String currentInterfaceId : routerToInterfaces.get(currentRouterId)) {
-                for (String nextInterfaceId : IGPMetricCosts.get(currentInterfaceId).keySet()){
+            for (String currentInterfaceId : nodesToInterfaces.get(currentRouterId)) {
+                for (String nextInterfaceId : edgeCosts.get(currentInterfaceId).keySet()){
                     String nextRouterId = interfaceToRouter.get(nextInterfaceId);
                     if (visited.contains(nextRouterId)){
                         continue;
                     }
-                    Float edgeCost = IGPMetricCosts.get(currentInterfaceId).getOrDefault(nextInterfaceId, Float.MAX_VALUE);
+                    Float edgeCost = edgeCosts.get(currentInterfaceId).getOrDefault(nextInterfaceId, Float.MAX_VALUE);
                     Float newDistance = distances.get(currentRouterId) + edgeCost;
                     if (newDistance < distances.get(nextRouterId)) {
                         distances.put(nextRouterId, newDistance);
@@ -145,6 +165,7 @@ public class OSPFArea extends RoutingGraph {
     }
 
     public void buildSpanningTree(String rootRouterId) {
+        // TODO: we need to dynamically call this whenever the topology changes (as nodesToInterfaces + edges come in)
         OSPFShortestPathTree spfTree = new OSPFShortestPathTree(rootRouterId);
         areaBorderRouters.put(rootRouterId, spfTree);
 
@@ -159,7 +180,7 @@ public class OSPFArea extends RoutingGraph {
 
 
         // Initialize the data structures
-        for (String routerId : routerToInterfaces.keySet()) {
+        for (String routerId : nodesToInterfaces.keySet()) {
             costs.put(routerId, Float.MAX_VALUE);
             parents.put(routerId, null);
         }
@@ -172,13 +193,13 @@ public class OSPFArea extends RoutingGraph {
             visited.add(currentRouterId);
 
             // Process the interfaces of the current router
-            for (String currentInterfaceId : routerToInterfaces.get(currentRouterId)) {
-                for (String nextInterfaceId : IGPMetricCosts.get(currentInterfaceId).keySet()){
+            for (String currentInterfaceId : nodesToInterfaces.get(currentRouterId)) {
+                for (String nextInterfaceId : edgeCosts.get(currentInterfaceId).keySet()){
                     String nextRouterId = interfaceToRouter.get(nextInterfaceId);
                     if (visited.contains(nextRouterId)){
                         continue;
                     }
-                    Float edgeCost = IGPMetricCosts.get(currentInterfaceId).getOrDefault(nextInterfaceId, Float.MAX_VALUE);
+                    Float edgeCost = edgeCosts.get(currentInterfaceId).getOrDefault(nextInterfaceId, Float.MAX_VALUE);
                     Float newCost = costs.get(currentRouterId) + edgeCost;
                     if (newCost < costs.get(nextRouterId)) {
                         costs.put(nextRouterId, newCost);

@@ -32,17 +32,17 @@ class OSPFAreaTest {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
-            area.IGPMetricCosts = mapper.readValue(
+            area.edgeCosts = mapper.readValue(
                     new File(IGPMetricCostsUrl.getFile()),
-                    new TypeReference<HashMap<String, HashMap<String, Float>>>() {}
+                    new TypeReference<>() {}
             );
-            area.routerToInterfaces = mapper.readValue(
+            area.nodesToInterfaces = mapper.readValue(
                     new File(routerToInterfacesUrl.getFile()),
-                    new TypeReference<HashMap<String, ArrayList<String>>>() {}
+                    new TypeReference<>() {}
             );
             area.interfaceToRouter = mapper.readValue(
                     new File(interfaceToRouterUrl.getFile()),
-                    new TypeReference<HashMap<String, String>>() {}
+                    new TypeReference<>() {}
             );
 
             // one hop
@@ -86,17 +86,17 @@ class OSPFAreaTest {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
-            area.IGPMetricCosts = mapper.readValue(
+            area.edgeCosts = mapper.readValue(
                     new File(IGPMetricCostsUrl.getFile()),
-                    new TypeReference<HashMap<String, HashMap<String, Float>>>() {}
+                    new TypeReference<>() {}
             );
-            area.routerToInterfaces = mapper.readValue(
+            area.nodesToInterfaces = mapper.readValue(
                     new File(routerToInterfacesUrl.getFile()),
-                    new TypeReference<HashMap<String, ArrayList<String>>>() {}
+                    new TypeReference<>() {}
             );
             area.interfaceToRouter = mapper.readValue(
                     new File(interfaceToRouterUrl.getFile()),
-                    new TypeReference<HashMap<String, String>>() {}
+                    new TypeReference<>() {}
             );
 
             // build shortest path tree from 192.168.0.1

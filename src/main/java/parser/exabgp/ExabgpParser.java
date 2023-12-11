@@ -66,7 +66,7 @@ public class ExabgpParser extends Parser {
         assert nlriJSONs.isArray();
 
         ObjectMapper mapper = new ObjectMapper();
-        Attribute attributes = mapper.convertValue(attributesJSON, new TypeReference<Attribute>(){});
+        Attribute attributes = mapper.convertValue(attributesJSON, new TypeReference<>(){});
         List<NLRI> nlris = new ArrayList();
         for (JsonNode nlriJSON : nlriJSONs) {
             NLRI nlri = getNLRI(nlriJSON);

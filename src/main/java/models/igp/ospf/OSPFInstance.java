@@ -14,7 +14,7 @@ import java.util.Map;
 public class OSPFInstance extends IGPInstance {
     public Map<String, OSPFRouter> routers;
     public Map<Pair<String, String>, OSPFLink> links;
-    public Map<Pair<String, String>, OSPFPrefix> prefixes;
+    public Map<String, OSPFPrefix> prefixes;
     public Map<String, OSPFArea> subgraphs;
     public OSPFInstance() {
         routers = new HashMap<>();
@@ -67,6 +67,7 @@ public class OSPFInstance extends IGPInstance {
     }
 
     private void addLink(Attribute attributes, LinkNLRI nlri) {
+        assert(attributes.containsKey("igp-metric"));
         Pair<String, String> linkKey = new Pair<>(nlri.local.routerId, nlri.remote.routerId);
         OSPFLink link = links.get(linkKey);
         if (link == null) {
@@ -86,21 +87,21 @@ public class OSPFInstance extends IGPInstance {
             String areaId = nlri.local.ospfAreaId;
             OSPFArea area = subgraphs.get(areaId);
             if (area != null) {
-                area.addEdge(nlri.local.routerId, nlri.descriptor.interfaceAddress, nlri.remote.routerId, nlri.descriptor.neighborAddress);
+                area.addEdge(nlri.local.routerId, nlri.descriptor.interfaceAddress, nlri.remote.routerId, nlri.descriptor.neighborAddress, (Float) attributes.get("IGP-metric"));
             }
         }
     }
 
     private void addPrefix(Attribute attributes, PrefixNLRI nlri) {
         String prefixStr = nlri.descriptor.ipPrefix + '/' + nlri.descriptor.prefixLength;
-        Pair<String, String> prefixKey = new Pair<>(prefixStr, nlri.local.routerId);
-        OSPFPrefix prefix = prefixes.get(prefixKey);
+        OSPFPrefix prefix = prefixes.get(prefixStr);
         if (prefix == null) {
             prefix = new OSPFPrefix();
-            prefixes.put(prefixKey, prefix);
+            prefixes.put(prefixStr, prefix);
         }
 
         prefix.setAttributes(attributes);
+        prefix.addRouter(nlri.local.routerId);
 
         // Keeping track of reachable prefixes in routerId
         OSPFRouter router = routers.get(nlri.local.routerId);
