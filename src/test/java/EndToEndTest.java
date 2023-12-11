@@ -67,6 +67,8 @@ public class EndToEndTest {
                             linkCount++;
                         }
                     }
+                    OSPFRouter router = ospfInstance.routers.get(routerId);
+                    System.out.println("        Reachable prefix: " + router.reachablePrefixes);
                 }
             }
 
@@ -74,6 +76,26 @@ public class EndToEndTest {
             System.out.println("Number of links: " + ospfInstance.links.keySet().size());
             assertEquals(linkCount, ospfInstance.links.keySet().size());
 
+            System.out.println("======================================");
+
+            // prefix reachability
+            for (String prefixStr : ospfInstance.prefixes.keySet()){
+                System.out.println("Prefix: " + prefixStr);
+                OSPFPrefix prefix = ospfInstance.prefixes.get(prefixStr);
+                for (String routerId : prefix.attributesForRouter.keySet()){
+                    System.out.println("    Router " + routerId + ": " +
+                            prefix.attributesForRouter.get(routerId).get("prefix-metric"));
+                }
+            }
+
+            // test prefix trie
+            // make sure all prefixes are inside the trie
+            for (String prefixStr : ospfInstance.prefixes.keySet()){
+                assertEquals(prefixStr, ospfInstance.prefixTrie.longestMatch(prefixStr));
+            }
+            assertEquals("10.0.0.48/30", ospfInstance.prefixTrie.longestMatch("10.0.0.48/32"));
+            assertEquals("192.168.0.3/32", ospfInstance.prefixTrie.longestMatch("192.168.0.3/32"));
+            assertEquals("192.168.1.0/24", ospfInstance.prefixTrie.longestMatch("192.168.1.0/30"));
 
         } catch (IOException e) {
             System.out.println("RIP");

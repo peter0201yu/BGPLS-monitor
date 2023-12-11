@@ -7,12 +7,12 @@ import java.util.*;
 
 public class OSPFRouter extends IGPNode {
     public Set<String> areaIds;
-    public List<String> reachablePrefixes;
+    public Set<String> reachablePrefixes;
 
     public OSPFRouter(String routerId) {
         super(routerId);
-        this.areaIds = new HashSet();
-        this.reachablePrefixes = new ArrayList<>();
+        this.areaIds = new HashSet<>();
+        this.reachablePrefixes = new HashSet<>();
     }
 
     public void addArea(String areaId) {
