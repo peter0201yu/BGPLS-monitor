@@ -16,11 +16,13 @@ public class OSPFInstance extends IGPInstance {
     public Map<Pair<String, String>, OSPFLink> links;
     public Map<String, OSPFPrefix> prefixes;
     public Map<String, OSPFArea> subgraphs;
+    public PrefixTrie prefixTrie;
     public OSPFInstance() {
         routers = new HashMap<>();
         links = new HashMap<>();
-        prefixes = new HashMap<>();
         subgraphs = new HashMap<>();
+        prefixes = new HashMap<>();
+        prefixTrie = new PrefixTrie();
     }
 
     @Override
@@ -100,15 +102,16 @@ public class OSPFInstance extends IGPInstance {
             prefixes.put(prefixStr, prefix);
         }
 
-        prefix.setAttributes(attributes);
-        prefix.addRouter(nlri.local.routerId);
+        // Keeping track of connected routers and connection attributes of the prefix
+        prefix.attributesForRouter.put(nlri.local.routerId, attributes);
 
         // Keeping track of reachable prefixes in routerId
         OSPFRouter router = routers.get(nlri.local.routerId);
         assert(router != null);
         router.addReachablePrefix(prefixStr);
 
-        // TODO: Equivalence Class Handling
+        // Add prefix to trie
+        prefixTrie.insert(prefixStr);
     }
 
     private void removeNode(String routerId) {
@@ -120,8 +123,11 @@ public class OSPFInstance extends IGPInstance {
         links.remove(linkKey);
     }
 
-    private void removePrefix(String prefix, String routerId) {
-        Pair<String, String> prefixKey = new Pair<>(prefix, routerId);
-        prefixes.remove(prefixKey);
+    private void removePrefix(String prefixStr, String routerId) {
+        // go into prefix to remove router
+        OSPFPrefix prefix = prefixes.get(prefixStr);
+        prefix.attributesForRouter.remove(routerId);
+        routers.get(routerId).removeReachablePrefix(prefixStr);
+        prefixTrie.delete(prefixStr);
     }
 }

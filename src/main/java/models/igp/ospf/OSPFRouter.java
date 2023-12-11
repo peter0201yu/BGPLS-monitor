@@ -22,4 +22,8 @@ public class OSPFRouter extends IGPNode {
     public void addReachablePrefix(String prefix) {
         this.reachablePrefixes.add(prefix);
     }
+
+    public void removeReachablePrefix(String prefix) {
+        this.reachablePrefixes.remove(prefix);
+    }
 }

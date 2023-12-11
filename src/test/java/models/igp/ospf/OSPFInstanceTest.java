@@ -70,4 +70,10 @@ public class OSPFInstanceTest {
         assert(ospfTopology.prefixes.size() == 1);
 
     }
+
+    @Test
+    public void testBuildPrefixTrie(){
+
+    }
+
 }
