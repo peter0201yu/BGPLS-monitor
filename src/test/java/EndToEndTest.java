@@ -96,6 +96,7 @@ public class EndToEndTest {
             assertEquals("10.0.0.48/30", ospfInstance.prefixTrie.longestMatch("10.0.0.48/32"));
             assertEquals("192.168.0.3/32", ospfInstance.prefixTrie.longestMatch("192.168.0.3/32"));
             assertEquals("192.168.1.0/24", ospfInstance.prefixTrie.longestMatch("192.168.1.0/30"));
+            assertEquals("", ospfInstance.prefixTrie.longestMatch("10.0.0.0/32"));
 
         } catch (IOException e) {
             System.out.println("RIP");
