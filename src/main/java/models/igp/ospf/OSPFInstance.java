@@ -58,7 +58,7 @@ public class OSPFInstance extends IGPInstance {
             // Add node to subgraph
             OSPFArea area = subgraphs.get(areaId);
             if (area == null) {
-                area = new OSPFArea();
+                area = new OSPFArea(areaId, false);
                 subgraphs.put(areaId, area);
             }
             area.addNode(routerId);
