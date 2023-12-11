@@ -20,7 +20,7 @@ public abstract class RoutingGraph {
     }
 
     public abstract void addNode(String nodeId);
-    public abstract void addEdge(String srcId, InetAddress srcAddress, String destId, InetAddress destAddress, Float metric);
+    public abstract void addEdge(String srcId, InetAddress srcAddress, String destId, InetAddress destAddress, float metric);
     public abstract void removeNode(String nodeId);
     public abstract void removeEdge(String srcId, String destId);
 }

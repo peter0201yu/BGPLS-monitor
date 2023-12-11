@@ -27,7 +27,7 @@ public class OSPFArea extends RoutingGraph {
     }
 
     @Override
-    public void addEdge(String srcId, InetAddress srcAddress, String destId, InetAddress destAddress, Float metric) {
+    public void addEdge(String srcId, InetAddress srcAddress, String destId, InetAddress destAddress, float metric) {
         assert(nodesToInterfaces.containsKey(srcId));
         assert(nodesToInterfaces.containsKey(destId));
 
@@ -49,6 +49,7 @@ public class OSPFArea extends RoutingGraph {
 
         // Add metric
         edgeCosts.putIfAbsent(srcIp, new HashMap<>());
+        edgeCosts.putIfAbsent(destIp, new HashMap<>());
         Map<String, Float> costs = edgeCosts.get(srcIp);
         costs.put(destIp, metric);
     }
