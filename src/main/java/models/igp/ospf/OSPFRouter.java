@@ -7,7 +7,6 @@ import java.util.*;
 
 public class OSPFRouter extends IGPNode {
     public Set<String> areaIds;
-    public Attribute attributes;
     public List<String> reachablePrefixes;
 
     public OSPFRouter(String routerId) {
@@ -20,7 +19,7 @@ public class OSPFRouter extends IGPNode {
         this.areaIds.add(areaId);
     }
 
-    public void setAttributes(Attribute attributes) {
-        this.attributes = attributes;
+    public void addReachablePrefix(String prefix) {
+        this.reachablePrefixes.add(prefix);
     }
 }

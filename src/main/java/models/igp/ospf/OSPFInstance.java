@@ -86,7 +86,7 @@ public class OSPFInstance extends IGPInstance {
             String areaId = nlri.local.ospfAreaId;
             OSPFArea area = subgraphs.get(areaId);
             if (area != null) {
-                area.addEdge(nlri.local.routerId, nlri.remote.routerId);
+                area.addEdge(nlri.local.routerId, nlri.descriptor.interfaceAddress, nlri.remote.routerId, nlri.descriptor.neighborAddress);
             }
         }
     }
@@ -101,6 +101,11 @@ public class OSPFInstance extends IGPInstance {
         }
 
         prefix.setAttributes(attributes);
+
+        // Keeping track of reachable prefixes in routerId
+        OSPFRouter router = routers.get(nlri.local.routerId);
+        assert(router != null);
+        router.addReachablePrefix(prefixStr);
 
         // TODO: Equivalence Class Handling
     }

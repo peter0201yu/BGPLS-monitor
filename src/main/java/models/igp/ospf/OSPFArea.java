@@ -2,6 +2,7 @@ package models.igp.ospf;
 
 import models.igp.RoutingGraph;
 
+import java.net.InetAddress;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +17,7 @@ public class OSPFArea extends RoutingGraph {
     }
 
     @Override
-    public void addEdge(String srcId, String destId) {
+    public void addEdge(String srcId, InetAddress srcAddress, String destId, InetAddress destAddress) {
         assert(nodes.contains(srcId));
         assert(nodes.contains(destId));
 
