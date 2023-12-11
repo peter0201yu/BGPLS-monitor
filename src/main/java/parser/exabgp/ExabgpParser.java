@@ -2,6 +2,8 @@ package parser.exabgp;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,7 @@ import models.bgpls.descriptors.NodeDescriptor;
 import models.bgpls.descriptors.LinkDescriptor;
 import models.bgpls.descriptors.PrefixDescriptor;
 import parser.Parser;
+import util.Attribute;
 
 public class ExabgpParser extends Parser {
     @Override
@@ -63,7 +66,7 @@ public class ExabgpParser extends Parser {
         assert nlriJSONs.isArray();
 
         ObjectMapper mapper = new ObjectMapper();
-        Map<String, Object> attributes = mapper.convertValue(attributesJSON, new TypeReference<Map<String, Object>>(){});
+        Attribute attributes = mapper.convertValue(attributesJSON, new TypeReference<Attribute>(){});
         List<NLRI> nlris = new ArrayList();
         for (JsonNode nlriJSON : nlriJSONs) {
             NLRI nlri = getNLRI(nlriJSON);
@@ -85,7 +88,12 @@ public class ExabgpParser extends Parser {
                 nlri = getNodeNLRI(nlriJSON);
                 break;
             case "bgpls-link":
-                nlri = getLinkNLRI(nlriJSON);
+                try {
+                    nlri = getLinkNLRI(nlriJSON);
+                } catch (UnknownHostException e) {
+                    System.out.println("ERROR: Unknown hostname in Link NLRI");
+                    return null;
+                }
                 break;
             case "bgpls-prefix-v4":
                 nlri = getPrefixNLRI(nlriJSON);
@@ -108,7 +116,7 @@ public class ExabgpParser extends Parser {
         return node;
     }
 
-    private LinkNLRI getLinkNLRI(JsonNode nlriJSON) {
+    private LinkNLRI getLinkNLRI(JsonNode nlriJSON) throws UnknownHostException {
         LinkNLRI link = new LinkNLRI();
         link.descriptor = getLinkDescriptor(nlriJSON);
         link.local = getNodeDescriptor(nlriJSON, "local-node-descriptors");
@@ -140,10 +148,12 @@ public class ExabgpParser extends Parser {
         return descriptor;
     }
 
-    private LinkDescriptor getLinkDescriptor(JsonNode nlriJSON) {
+    private LinkDescriptor getLinkDescriptor(JsonNode nlriJSON) throws UnknownHostException {
         LinkDescriptor descriptor = new LinkDescriptor();
-        descriptor.ipv4Interface = nlriJSON.get("interface-address").get("interface-address").asText();
-        descriptor.ipv4Neighbor = nlriJSON.get("neighbor-address").get("neighbor-address").asText();
+        String interfaceAddress = nlriJSON.get("interface-address").get("interface-address").asText();
+        String neighborAddress = nlriJSON.get("neighbor-address").get("neighbor-address").asText();
+        descriptor.interfaceAddress = InetAddress.getByName(interfaceAddress);
+        descriptor.neighborAddress = InetAddress.getByName(neighborAddress);
 
         return descriptor;
     }
