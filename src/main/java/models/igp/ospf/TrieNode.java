@@ -1,3 +1,5 @@
+package models.igp.ospf;
+
 class TrieNode {
     private final String bitString;
     private final int level;

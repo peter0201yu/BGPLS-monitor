@@ -2,17 +2,22 @@ package models.igp.ospf;
 
 import models.igp.IGPPrefix;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import util.Attribute;
 
 public class OSPFPrefix extends IGPPrefix {
-    public Set<String> routerIds;
+    // routerId => attribute
+    public HashMap<String, Attribute> attributesForRouter;
 
-    public OSPFPrefix() {
-        this.routerIds = new HashSet<>();
+    public OSPFPrefix(){
+        attributesForRouter = new HashMap<>();
     }
 
-    public void addRouter(String routerId) {
-        routerIds.add(routerId);
+    public void addRouter(String routerId, Attribute attribute){
+        attributesForRouter.put(routerId, attribute);
+    }
+
+    public void removeRouter(String routerId){
+        attributesForRouter.remove(routerId);
     }
 }

@@ -1,5 +1,9 @@
+package models.igp.ospf;
+
+import models.igp.ospf.TrieNode;
+
 import java.util.*;
-class PrefixTrie {
+public class PrefixTrie {
     private final TrieNode root;
 
     public PrefixTrie() {

@@ -4,6 +4,7 @@ import models.bgpls.LinkNLRI;
 import models.bgpls.NLRI;
 import models.bgpls.NodeNLRI;
 import models.bgpls.PrefixNLRI;
+import models.bgpls.descriptors.NodeDescriptor;
 import models.igp.IGPInstance;
 import util.Attribute;
 import util.Pair;
@@ -16,11 +17,13 @@ public class OSPFInstance extends IGPInstance {
     public Map<Pair<String, String>, OSPFLink> links;
     public Map<String, OSPFPrefix> prefixes;
     public Map<String, OSPFArea> subgraphs;
+    public PrefixTrie prefixTrie;
     public OSPFInstance() {
         routers = new HashMap<>();
         links = new HashMap<>();
-        prefixes = new HashMap<>();
         subgraphs = new HashMap<>();
+        prefixes = new HashMap<>();
+        prefixTrie = new PrefixTrie();
     }
 
     @Override
@@ -86,9 +89,29 @@ public class OSPFInstance extends IGPInstance {
             // Add edge to subgraph
             String areaId = nlri.local.ospfAreaId;
             OSPFArea area = subgraphs.get(areaId);
-            if (area != null) {
-                area.addEdge(nlri.local.routerId, nlri.descriptor.interfaceAddress, nlri.remote.routerId, nlri.descriptor.neighborAddress, (Float) attributes.get("IGP-metric"));
+            if (area == null) {
+                area = new OSPFArea(areaId, false);
+                subgraphs.put(areaId, area);
             }
+
+            // add node first
+            NodeNLRI nodeNLRI1 = new NodeNLRI();
+            nodeNLRI1.descriptor = new NodeDescriptor();
+            nodeNLRI1.descriptor.routerId = nlri.local.routerId;
+            nodeNLRI1.descriptor.ospfAreaId = areaId;
+            addNode(new Attribute(), nodeNLRI1);
+
+            NodeNLRI nodeNLRI2 = new NodeNLRI();
+            nodeNLRI2.descriptor = new NodeDescriptor();
+            nodeNLRI2.descriptor.routerId = nlri.remote.routerId;
+            nodeNLRI2.descriptor.ospfAreaId = areaId;
+            addNode(new Attribute(), nodeNLRI2);
+
+            float cost = (float) ((Integer) attributes.get("igp-metric"));
+
+            area.addEdge(nlri.local.routerId, nlri.descriptor.interfaceAddress, nlri.remote.routerId,
+                    nlri.descriptor.neighborAddress, cost);
+
         }
     }
 
@@ -100,15 +123,26 @@ public class OSPFInstance extends IGPInstance {
             prefixes.put(prefixStr, prefix);
         }
 
-        prefix.setAttributes(attributes);
-        prefix.addRouter(nlri.local.routerId);
+        String routerId = nlri.local.routerId;
+        // Keeping track of connected routers and connection attributes of the prefix
+        prefix.addRouter(routerId, attributes);
 
         // Keeping track of reachable prefixes in routerId
-        OSPFRouter router = routers.get(nlri.local.routerId);
+        OSPFRouter router = routers.get(routerId);
+        if (router == null) {
+            // handle the case where the router is not added before the link
+            NodeNLRI nodeNLRI = new NodeNLRI();
+            nodeNLRI.descriptor = new NodeDescriptor();
+            nodeNLRI.descriptor.routerId = routerId;
+            nodeNLRI.descriptor.ospfAreaId = nlri.local.ospfAreaId;
+            addNode(new Attribute(), nodeNLRI);
+            router = routers.get(routerId);
+        }
         assert(router != null);
         router.addReachablePrefix(prefixStr);
 
-        // TODO: Equivalence Class Handling
+        // Add prefix to trie
+        prefixTrie.insert(prefixStr);
     }
 
     private void removeNode(String routerId) {
@@ -120,8 +154,11 @@ public class OSPFInstance extends IGPInstance {
         links.remove(linkKey);
     }
 
-    private void removePrefix(String prefix, String routerId) {
-        Pair<String, String> prefixKey = new Pair<>(prefix, routerId);
-        prefixes.remove(prefixKey);
+    private void removePrefix(String prefixStr, String routerId) {
+        // go into prefix to remove router
+        OSPFPrefix prefix = prefixes.get(prefixStr);
+        prefix.removeRouter(routerId);
+        routers.get(routerId).removeReachablePrefix(prefixStr);
+        prefixTrie.delete(prefixStr);
     }
 }
