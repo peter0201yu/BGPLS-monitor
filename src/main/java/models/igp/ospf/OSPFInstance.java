@@ -125,7 +125,7 @@ public class OSPFInstance extends IGPInstance {
 
         String routerId = nlri.local.routerId;
         // Keeping track of connected routers and connection attributes of the prefix
-        prefix.attributesForRouter.put(routerId, attributes);
+        prefix.addRouter(routerId, attributes);
 
         // Keeping track of reachable prefixes in routerId
         OSPFRouter router = routers.get(routerId);
@@ -157,7 +157,7 @@ public class OSPFInstance extends IGPInstance {
     private void removePrefix(String prefixStr, String routerId) {
         // go into prefix to remove router
         OSPFPrefix prefix = prefixes.get(prefixStr);
-        prefix.attributesForRouter.remove(routerId);
+        prefix.removeRouter(routerId);
         routers.get(routerId).removeReachablePrefix(prefixStr);
         prefixTrie.delete(prefixStr);
     }

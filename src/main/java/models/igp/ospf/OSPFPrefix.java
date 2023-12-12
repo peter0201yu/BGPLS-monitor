@@ -12,4 +12,12 @@ public class OSPFPrefix extends IGPPrefix {
     public OSPFPrefix(){
         attributesForRouter = new HashMap<>();
     }
+
+    public void addRouter(String routerId, Attribute attribute){
+        attributesForRouter.put(routerId, attribute);
+    }
+
+    public void removeRouter(String routerId){
+        attributesForRouter.remove(routerId);
+    }
 }

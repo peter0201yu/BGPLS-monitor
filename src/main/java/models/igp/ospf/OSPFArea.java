@@ -44,6 +44,7 @@ public class OSPFArea extends RoutingGraph {
 
         // Add edges
         edges.putIfAbsent(srcId, new HashSet<>());
+        edges.putIfAbsent(destId, new HashSet<>());
         Set<String> neighbors = edges.get(srcId);
         neighbors.add(destId);
 
