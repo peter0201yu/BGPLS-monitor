@@ -29,8 +29,8 @@ public class OSPFArea extends RoutingGraph {
 
     @Override
     public void addEdge(String srcId, InetAddress srcAddress, String destId, InetAddress destAddress, float metric) {
-        assert(nodesToInterfaces.containsKey(srcId));
-        assert(nodesToInterfaces.containsKey(destId));
+        addNode(srcId);
+        addNode(destId);
 
         String srcIp = srcAddress.getHostAddress();
         String destIp = destAddress.getHostAddress();
