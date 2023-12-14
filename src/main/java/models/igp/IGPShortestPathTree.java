@@ -1,20 +1,21 @@
-package models.igp.ospf;
-import java.util.*;
+package models.igp;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 
-public class OSPFShortestPathTree {
-    // typically root router is ABR
-    public String rootRouterId;
+public class IGPShortestPathTree {
+    public String rootNodeId;
     // spanning tree: <child, parent>
     public HashMap<String, String> parents;
     // spanning tree costs: <child, cost>
     public HashMap<String, Float> costs;
 
-    public OSPFShortestPathTree(String _rootRouterId) {
-        rootRouterId = _rootRouterId;
+    public IGPShortestPathTree(String _rootNodeId) {
+        rootNodeId = _rootNodeId;
         parents = new HashMap<>();
         costs = new HashMap<>();
-        costs.put(rootRouterId, 0f);
+        costs.put(rootNodeId, 0f);
     }
 
     // Add router to the shortest path tree
@@ -24,17 +25,17 @@ public class OSPFShortestPathTree {
     }
 
     // get path based on spanning tree
-    public OSPFPath getPath(String dstRouterId){
-        String currRouterId = dstRouterId;
+    public IGPPath getPath(String dstNodeId){
+        String currRouterId = dstNodeId;
         ArrayList<String> path = new ArrayList<>();
 
-        while (!currRouterId.equals(rootRouterId)) {
+        while (!currRouterId.equals(rootNodeId)) {
             String parentId = parents.get(currRouterId);
             path.add(currRouterId); // Add the router to the path
             currRouterId = parentId;
         }
-        path.add(rootRouterId);
+        path.add(rootNodeId);
         Collections.reverse(path);
-        return new OSPFPath(rootRouterId, dstRouterId, path, costs.get(dstRouterId));
+        return new IGPPath(rootNodeId, dstNodeId, path, costs.get(dstNodeId));
     }
 }
