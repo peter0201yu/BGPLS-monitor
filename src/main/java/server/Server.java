@@ -28,11 +28,12 @@ public class Server {
 
         String resourceName;
         if (args.length < 1) {
-            System.out.println("No resourceName given, use default.");
             resourceName = "dummydata/bgpls-examples.json";
+            System.out.println("No resourceName given, running with default: dummydata/bgpls-examples.json");
         }
         else {
             resourceName = args[0];
+            System.out.println("Running with resourceName " + resourceName);
         }
 
         InputStream inputStream = Server.class.getClassLoader().getResourceAsStream(resourceName);
