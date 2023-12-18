@@ -28,7 +28,8 @@ public class IGPPath {
         return joined;
     }
 
-    public String PathToString(){
+    @Override
+    public String toString(){
         String s = "";
         s += "Path: src " + srcNodeId + " -> " + dstNodeId + "\n";
         s += "  hops: " + path + "\n";

@@ -173,7 +173,7 @@ public class OSPFInstance extends IGPInstance {
         prefixTrie.delete(prefixStr);
     }
 
-    public void getShortestPath(String ingressNetwork, String egressNetwork) {
+    public IGPPath getShortestPath(String ingressNetwork, String egressNetwork) {
         String ingressPrefixStr = prefixTrie.longestMatch(ingressNetwork);
         String egressPrefixStr = prefixTrie.longestMatch(egressNetwork);
         OSPFPrefix ingressPrefix = prefixes.get(ingressPrefixStr);
@@ -181,14 +181,9 @@ public class OSPFInstance extends IGPInstance {
         Set<String> ingressRouterIds = ingressPrefix.attributesForRouter.keySet();
         Set<String> egressRouterIds = egressPrefix.attributesForRouter.keySet();
 
-        System.out.println("ingress prefix: " + ingressNetwork + ", " + ingressPrefixStr);
-        System.out.println("egress prefix: " + egressNetwork + ", " + egressPrefixStr);
-        for (String ingressRouterId : ingressRouterIds) {
-            System.out.println("ingress: " + ingressRouterId);
-        }
-        for (String egressRouterId : egressRouterIds) {
-            System.out.println("egress: " + egressRouterId);
-        }
+        System.out.println("ingress prefix: " + ingressNetwork + " => " + ingressPrefixStr + ", reachable routers: " + ingressRouterIds);
+        System.out.println("ingress prefix: " + ingressNetwork + " => " + ingressPrefixStr + ", reachable routers: " + egressRouterIds);
+
 
         // 1. Add a dummy node for the ingress and egress prefix
         summaryGraph.addNode(ingressNetwork);
@@ -231,7 +226,12 @@ public class OSPFInstance extends IGPInstance {
             String areaId = ingressTriple.third;
 
             OSPFArea area = subgraphs.get(areaId);
+            // basic approach: find shortest path
             IGPPath path = area.findShortestPathBetweenNodes(ingressRouterId, ingressAbrId);
+
+            // optimized approach: retrieve information from spanning tree
+            // but this might not work, since this technically computes ABR -> ingress, not the other direction
+            // Float cost = area.areaBorderRouters.get(ingressAbrId).getCost(ingressRouterId);
 
             summaryGraph.addNode(ingressAbrId);
             // System.out.println("ingress edge: " + ingressRouterId + " -> " + ingressAbrId + ", cost: " + path.cost);
@@ -283,13 +283,6 @@ public class OSPFInstance extends IGPInstance {
         }
 
         // Find shortest path
-        IGPPath globalPath = summaryGraph.findShortestPathBetweenNodes(ingressNetwork, egressNetwork);
-
-        // Print path
-        if (globalPath != null) {
-            System.out.println(globalPath.PathToString());
-        } else {
-            System.out.println("FUCK");
-        }
+        return summaryGraph.findShortestPathBetweenNodes(ingressNetwork, egressNetwork);
     }
 }

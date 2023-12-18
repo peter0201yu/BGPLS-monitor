@@ -1,22 +1,44 @@
+package server;
+
 import models.Topologies;
 import models.bgpls.NLRI;
 import models.bgpls.UpdateMessage;
 import models.igp.IGPInstance;
-import models.igp.IGPPath;
 import models.igp.ospf.OSPFInstance;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.ApplicationContext;
 import parser.exabgp.ExabgpParser;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-public class Main {
+@SpringBootApplication
+public class Server {
+
+    @Bean
+    public Topologies topologies() {
+        return new Topologies();
+    }
+
     public static void main(String[] args) {
-        String resourceName = "dummydata/bgpls-examples.json";
-        InputStream inputStream = Main.class.getClassLoader().getResourceAsStream(resourceName);
+        ApplicationContext context = SpringApplication.run(Server.class, args);
+
+        String resourceName;
+        if (args.length < 1) {
+            System.out.println("No resourceName given, use default.");
+            resourceName = "dummydata/bgpls-examples.json";
+        }
+        else {
+            resourceName = args[0];
+        }
+
+        InputStream inputStream = Server.class.getClassLoader().getResourceAsStream(resourceName);
+        Topologies topologies = context.getBean(Topologies.class);
 
         ExabgpParser parser = new ExabgpParser();
-        Topologies topologies = new Topologies();
         try {
             List<UpdateMessage> messages = parser.readMessage(inputStream);
             for (UpdateMessage message : messages) {
@@ -40,20 +62,11 @@ public class Main {
                                 topology
                         );
                     }
-
                     topology.handleNLRI(message.attributes, nlri);
                 }
             }
         } catch (IOException e) {
             System.out.println("boo hoo");
         }
-
-        // Test end to end same domain inter-area route retrieval and cost calculation
-        String ingressNetwork = "10.0.0.12/30";
-        String egressNetwork = "10.0.1.4/30";
-        // TODO: need to map ip to topology.
-        IGPInstance topology = topologies.get("0", 65530, 3, 0);
-        IGPPath path = topology.getShortestPath(ingressNetwork, egressNetwork);
-        System.out.println(path.toString());
     }
 }
