@@ -25,7 +25,7 @@ public abstract class RoutingGraph {
     // Find shortest path functions
     // ---------------------------------------------
     public IGPPath findShortestPathBetweenNodes(String srcNodeId, String dstNodeId) {
-
+        System.out.println("Finding shortest path: " + srcNodeId + " -> " + dstNodeId);
         HashSet<String> visited = new HashSet<>();
         // Router => distance from srcRouter
         HashMap<String, Float> distances = new HashMap<>();
@@ -48,16 +48,21 @@ public abstract class RoutingGraph {
 
         while (!queue.isEmpty()) {
             String currentRouterId = queue.poll();
+            System.out.println("Curr: "+ currentRouterId);
             visited.add(currentRouterId);
 
             // If the destination router is reached, reconstruct the path and return the total cost
             if (currentRouterId.equals(dstNodeId)) {
                 ArrayList<String> path = reconstructPath(previous, srcNodeId, dstNodeId);
-                return new IGPPath(srcNodeId, srcNodeId, path, distances.get(dstNodeId));
+                return new IGPPath(srcNodeId, dstNodeId, path, distances.get(dstNodeId));
             }
 
             // Iterate through adjacent routers & interfaces, update distances if a shorter path is found
             for (String currentInterfaceId : nodesToInterfaces.get(currentRouterId)) {
+                if (edgeCosts.get(currentInterfaceId) == null){
+                    System.out.println(currentRouterId + " " + currentInterfaceId);
+                    continue;
+                }
                 for (String nextInterfaceId : edgeCosts.get(currentInterfaceId).keySet()){
                     String nextRouterId = interfaceToNode.get(nextInterfaceId);
                     if (visited.contains(nextRouterId)){

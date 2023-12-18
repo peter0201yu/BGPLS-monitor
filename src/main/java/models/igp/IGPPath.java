@@ -27,4 +27,12 @@ public class IGPPath {
 
         return joined;
     }
+
+    public String PathToString(){
+        String s = "";
+        s += "Path: src " + srcNodeId + " -> " + dstNodeId + "\n";
+        s += "  hops: " + path + "\n";
+        s += "  cost: " + cost + "\n";
+        return s;
+    }
 }

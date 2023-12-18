@@ -48,8 +48,8 @@ public class Main {
         }
 
         // Test end to end same domain inter-area route retrieval and cost calculation
-        String ingressNetwork = "192.168.0.10/32";
-        String egressNetwork = "10.0.0.40/30";
+        String ingressNetwork = "10.0.0.12/30";
+        String egressNetwork = "10.0.1.4/30";
         // TODO: need to map ip to topology.
         IGPInstance topology = topologies.get("0", 65530, 3, 0);
         topology.getShortestPath(ingressNetwork, egressNetwork);

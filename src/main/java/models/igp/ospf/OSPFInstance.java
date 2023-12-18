@@ -209,13 +209,6 @@ public class OSPFInstance extends IGPInstance {
                 routersInArea.add(ingressRouterId);
             }
         }
-        // print areaToIngressRouter
-        for (String areaId : areaToIngressRouter.keySet()) {
-            System.out.println("bbbbb: " + areaId);
-            for (String ingressRouterId : areaToIngressRouter.get(areaId)) {
-                System.out.println("aaaaa: " + ingressRouterId);
-            }
-        }
 
         // 3. Find ingress ABRs that connect to backbone and a ingress router area. Map from ingressABRId to ingressRouterId to areaId
         Set<Triple<String, String, String>> ingressTriples = new HashSet<>(); // ingressRouterId, ingressAbrId, areaId
@@ -241,10 +234,10 @@ public class OSPFInstance extends IGPInstance {
             IGPPath path = area.findShortestPathBetweenNodes(ingressRouterId, ingressAbrId);
 
             summaryGraph.addNode(ingressAbrId);
-            System.out.println("ingress edge: " + ingressRouterId + " -> " + ingressAbrId + ", cost: " + path.cost);
+            // System.out.println("ingress edge: " + ingressRouterId + " -> " + ingressAbrId + ", cost: " + path.cost);
             summaryGraph.updateEdgeIfSmaller(ingressRouterId, ingressAbrId, path.cost);
         }
-        
+
         // 5. add edges from egress prefix to egress routers. Also keep track of mapping from areaId to reachableEgressRouters
         Map<String, Set<String>> areaToEgressRouter = new HashMap<>(); // egressRouterId, areaId
         for (String egressRouterId : egressRouterIds) {
@@ -285,32 +278,18 @@ public class OSPFInstance extends IGPInstance {
             IGPPath path = area.findShortestPathBetweenNodes(egressRouterId, egressAbrId);
 
             summaryGraph.addNode(egressAbrId);
-            System.out.println("egress edge: " + egressRouterId + " -> " + egressAbrId + ", cost: " + path.cost);
+            // System.out.println("egress edge: " + egressRouterId + " -> " + egressAbrId + ", cost: " + path.cost);
             summaryGraph.updateEdgeIfSmaller(egressRouterId, egressAbrId, path.cost);
         }
 
-        // // Find shortest path from ingressRouter --> egressRouter
-        // Pair<String, IGPPath> minPath = null;
-        // for (String possibleIngressAbr : ingressTriples.keySet()) {
-        //     for (String possibleEgressAbr : egressAbrs.keySet()) {
-        //         IGPPath path = IGPPath.join(
-        //                 ingressToIngressAbr.get(possibleIngressAbr),
-        //                 ingressAbrToEgressAbr.get(possibleIngressAbr).get(possibleEgressAbr),
-        //                 egressAbrToEgress.get(possibleEgressAbr)
-        //         );
-        //         if (minPath == null || path.cost < minPath.value().cost) {
-        //             minPath = new Pair<>(possibleIngressAbr, path);
-        //         }
-        //     }
-        // }
+        // Find shortest path
+        IGPPath globalPath = summaryGraph.findShortestPathBetweenNodes(ingressNetwork, egressNetwork);
 
-        // // Print path
-        // if (minPath != null) {
-        //     System.out.println("Shortest path from " + ingressNetwork + " to " + egressNetwork + " is:");
-        //     for (String routerId : minPath.value().path) {
-        //         System.out.println(routerId);
-        //     }
-        //     System.out.println("Cost: " + minPath.value().cost);
-        // }
+        // Print path
+        if (globalPath != null) {
+            System.out.println(globalPath.PathToString());
+        } else {
+            System.out.println("FUCK");
+        }
     }
 }
