@@ -6,11 +6,11 @@ import models.bgpls.NodeNLRI;
 import models.bgpls.PrefixNLRI;
 import models.bgpls.descriptors.NodeDescriptor;
 import models.igp.IGPInstance;
+import models.igp.IGPPath;
 import util.Attribute;
 import util.Pair;
-
-import java.util.HashMap;
-import java.util.Map;
+import util.Triple;
+import java.util.*;
 
 public class OSPFInstance extends IGPInstance {
     public Map<String, OSPFRouter> routers;
@@ -18,12 +18,17 @@ public class OSPFInstance extends IGPInstance {
     public Map<String, OSPFPrefix> prefixes;
     public Map<String, OSPFArea> subgraphs;
     public PrefixTrie prefixTrie;
+    private Set<String> backboneAbrs;
+    private OSPFSummaryGraph summaryGraph;
+
     public OSPFInstance() {
         routers = new HashMap<>();
         links = new HashMap<>();
         subgraphs = new HashMap<>();
         prefixes = new HashMap<>();
         prefixTrie = new PrefixTrie();
+        backboneAbrs = new HashSet<>();
+        summaryGraph = new OSPFSummaryGraph();
     }
 
     @Override
@@ -57,6 +62,11 @@ public class OSPFInstance extends IGPInstance {
             // Add areaId to list of areaIds in router
             String areaId = nlri.descriptor.ospfAreaId;
             router.addArea(areaId);
+
+            if (areaId.equals("0.0.0.0")) {
+                // TODO: is backbone 0.0.0.0 for non-exabgp messages?
+                backboneAbrs.add(routerId);
+            }
 
             // Add node to subgraph
             OSPFArea area = subgraphs.get(areaId);
@@ -93,6 +103,7 @@ public class OSPFInstance extends IGPInstance {
                 area = new OSPFArea(areaId, false);
                 subgraphs.put(areaId, area);
             }
+            area.addEdge(nlri.local.routerId, nlri.descriptor.interfaceAddress, nlri.remote.routerId, nlri.descriptor.neighborAddress, (float) ((Integer) attributes.get("igp-metric")));
 
             // add node first
             NodeNLRI nodeNLRI1 = new NodeNLRI();
@@ -160,5 +171,118 @@ public class OSPFInstance extends IGPInstance {
         prefix.removeRouter(routerId);
         routers.get(routerId).removeReachablePrefix(prefixStr);
         prefixTrie.delete(prefixStr);
+    }
+
+    public IGPPath getShortestPath(String ingressNetwork, String egressNetwork) {
+        String ingressPrefixStr = prefixTrie.longestMatch(ingressNetwork);
+        String egressPrefixStr = prefixTrie.longestMatch(egressNetwork);
+        OSPFPrefix ingressPrefix = prefixes.get(ingressPrefixStr);
+        OSPFPrefix egressPrefix = prefixes.get(egressPrefixStr);
+        Set<String> ingressRouterIds = ingressPrefix.attributesForRouter.keySet();
+        Set<String> egressRouterIds = egressPrefix.attributesForRouter.keySet();
+
+        System.out.println("ingress prefix: " + ingressNetwork + " => " + ingressPrefixStr + ", reachable routers: " + ingressRouterIds);
+        System.out.println("ingress prefix: " + ingressNetwork + " => " + ingressPrefixStr + ", reachable routers: " + egressRouterIds);
+
+
+        // 1. Add a dummy node for the ingress and egress prefix
+        summaryGraph.addNode(ingressNetwork);
+        summaryGraph.addNode(egressNetwork);
+
+        // 2. add edges from ingress prefix to ingress routers. Also keep track of mapping from areaId to reachableIngressRouters
+        Map<String, Set<String>> areaToIngressRouter = new HashMap<>(); // ingressRouterId, areaId
+        for (String ingressRouterId : ingressRouterIds) {
+            float cost = (float) ((Integer) ingressPrefix.attributesForRouter.get(ingressRouterId).get("prefix-metric"));
+            summaryGraph.addNode(ingressRouterId);
+            summaryGraph.addEdge(ingressNetwork, ingressRouterId, cost);
+            summaryGraph.addEdge(ingressRouterId, ingressNetwork, cost);
+
+            OSPFRouter ingressRouter = routers.get(ingressRouterId);
+            for (String areaId : ingressRouter.areaIds) {
+                areaToIngressRouter.putIfAbsent(areaId, new HashSet<>());
+                Set<String> routersInArea = areaToIngressRouter.get(areaId);
+                routersInArea.add(ingressRouterId);
+            }
+        }
+
+        // 3. Find ingress ABRs that connect to backbone and a ingress router area. Map from ingressABRId to ingressRouterId to areaId
+        Set<Triple<String, String, String>> ingressTriples = new HashSet<>(); // ingressRouterId, ingressAbrId, areaId
+        for (String ingressAbrId : backboneAbrs) {
+            OSPFRouter ingressAbr = routers.get(ingressAbrId);
+            for (String areaId : ingressAbr.areaIds) {
+                if (areaToIngressRouter.containsKey(areaId)) {
+                    Set<String> areaRouterIds = areaToIngressRouter.get(areaId);
+                    for (String ingressRouterId : areaRouterIds) {
+                        ingressTriples.add(new Triple<>(ingressRouterId, ingressAbrId, areaId));
+                    }
+                }
+            }
+        }
+
+        // 4. Add ingress ABR node and edges to summary graph
+        for (Triple<String, String, String> ingressTriple : ingressTriples) {
+            String ingressRouterId = ingressTriple.first;
+            String ingressAbrId = ingressTriple.second;
+            String areaId = ingressTriple.third;
+
+            OSPFArea area = subgraphs.get(areaId);
+            // basic approach: find shortest path
+            IGPPath path = area.findShortestPathBetweenNodes(ingressRouterId, ingressAbrId);
+
+            // optimized approach: retrieve information from spanning tree
+            // but this might not work, since this technically computes ABR -> ingress, not the other direction
+            // Float cost = area.areaBorderRouters.get(ingressAbrId).getCost(ingressRouterId);
+
+            summaryGraph.addNode(ingressAbrId);
+            // System.out.println("ingress edge: " + ingressRouterId + " -> " + ingressAbrId + ", cost: " + path.cost);
+            summaryGraph.updateEdgeIfSmaller(ingressRouterId, ingressAbrId, path.cost);
+        }
+
+        // 5. add edges from egress prefix to egress routers. Also keep track of mapping from areaId to reachableEgressRouters
+        Map<String, Set<String>> areaToEgressRouter = new HashMap<>(); // egressRouterId, areaId
+        for (String egressRouterId : egressRouterIds) {
+            float cost = (float) ((Integer) egressPrefix.attributesForRouter.get(egressRouterId).get("prefix-metric"));
+            summaryGraph.addNode(egressRouterId);
+            summaryGraph.addEdge(egressNetwork, egressRouterId, cost);
+            summaryGraph.addEdge(egressRouterId, egressNetwork, cost);
+
+            OSPFRouter egressRouter = routers.get(egressRouterId);
+            for (String areaId : egressRouter.areaIds) {
+                areaToEgressRouter.putIfAbsent(areaId, new HashSet<>());
+                Set<String> routersInArea = areaToEgressRouter.get(areaId);
+                routersInArea.add(egressRouterId);
+            }
+        }
+
+        // 6. Find egress ABRs that connect to backbone and a egress router area. Map from egressABRId to egressRouterId to areaId
+        Set<Triple<String, String, String>> egressTriples = new HashSet<>(); // egressRouterId, egressAbrId, areaId
+        for (String egressAbrId : backboneAbrs) {
+            OSPFRouter egressAbr = routers.get(egressAbrId);
+            for (String areaId : egressAbr.areaIds) {
+                if (areaToEgressRouter.containsKey(areaId)) {
+                    Set<String> areaRouterIds = areaToEgressRouter.get(areaId);
+                    for (String egressRouterId : areaRouterIds) {
+                        egressTriples.add(new Triple<>(egressRouterId, egressAbrId, areaId));
+                    }
+                }
+            }
+        }
+
+        // 7. Add egress ABR node and edges to summary graph
+        for (Triple<String, String, String> egressTriple : egressTriples) {
+            String egressRouterId = egressTriple.first;
+            String egressAbrId = egressTriple.second;
+            String areaId = egressTriple.third;
+
+            OSPFArea area = subgraphs.get(areaId);
+            IGPPath path = area.findShortestPathBetweenNodes(egressRouterId, egressAbrId);
+
+            summaryGraph.addNode(egressAbrId);
+            // System.out.println("egress edge: " + egressRouterId + " -> " + egressAbrId + ", cost: " + path.cost);
+            summaryGraph.updateEdgeIfSmaller(egressRouterId, egressAbrId, path.cost);
+        }
+
+        // Find shortest path
+        return summaryGraph.findShortestPathBetweenNodes(ingressNetwork, egressNetwork);
     }
 }

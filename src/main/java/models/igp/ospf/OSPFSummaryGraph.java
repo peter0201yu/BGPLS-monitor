@@ -1,27 +1,16 @@
 package models.igp.ospf;
 
-import models.igp.IGPShortestPathTree;
+import models.igp.IGPPath;
 import models.igp.RoutingGraph;
-import util.Pair;
 
 import java.net.InetAddress;
 import java.util.*;
 
-public class OSPFArea extends RoutingGraph {
-    public String areaId;
-    public boolean isBackbone;
-    public HashMap<String, IGPShortestPathTree> areaBorderRouters;
-
-    public OSPFArea(String _areaId, boolean _isBackbone) {
+public class OSPFSummaryGraph extends RoutingGraph {
+    public OSPFSummaryGraph() {
         super();
-        areaId = _areaId;
-        isBackbone = _isBackbone;
-        areaBorderRouters = new HashMap<String, IGPShortestPathTree>();
     }
 
-    // ---------------------------------------------
-    // Build topology functions
-    // ---------------------------------------------
     @Override
     public void addNode(String nodeId) {
         nodesToInterfaces.putIfAbsent(nodeId, new HashSet<>());
@@ -29,11 +18,15 @@ public class OSPFArea extends RoutingGraph {
 
     @Override
     public void addEdge(String srcId, InetAddress srcAddress, String destId, InetAddress destAddress, float metric) {
+
+    }
+
+    public void addEdge(String srcId, String destId, float metric) {
         addNode(srcId);
         addNode(destId);
 
-        String srcIp = srcAddress.getHostAddress();
-        String destIp = destAddress.getHostAddress();
+        String srcIp = srcId;
+        String destIp = destId;
 
         // Keep track of a node's interfaces
         nodesToInterfaces.get(srcId).add(srcIp);
@@ -54,6 +47,40 @@ public class OSPFArea extends RoutingGraph {
         edgeCosts.putIfAbsent(destIp, new HashMap<>());
         Map<String, Float> costs = edgeCosts.get(srcIp);
         costs.put(destIp, metric);
+    }
+
+    public void updateEdgeIfSmaller(String srcId, String destId, float metric) {
+        addNode(srcId);
+        addNode(destId);
+
+        String srcIp = srcId;
+        String destIp = destId;
+
+        // Keep track of a node's interfaces
+        nodesToInterfaces.get(srcId).add("");
+        nodesToInterfaces.get(destId).add("");
+
+        // Map interfaces to routers
+        interfaceToNode.put(srcIp, srcId);
+        interfaceToNode.put(destIp, destId);
+
+        // Add edges
+        edges.putIfAbsent(srcId, new HashSet<>());
+        edges.putIfAbsent(destId, new HashSet<>());
+        Set<String> neighbors = edges.get(srcId);
+        neighbors.add(destId);
+
+        // Add metric
+        edgeCosts.putIfAbsent(srcIp, new HashMap<>());
+        edgeCosts.putIfAbsent(destIp, new HashMap<>());
+        Map<String, Float> costs = edgeCosts.get(srcIp);
+        if (costs.containsKey(destIp)) {
+            if (costs.get(destIp) > metric) {
+                costs.put(destIp, metric);
+            }
+        } else {
+            costs.put(destIp, metric);
+        }
     }
 
     @Override
@@ -80,9 +107,6 @@ public class OSPFArea extends RoutingGraph {
 
         // Remove node
         nodesToInterfaces.remove(nodeId);
-
-        // Remove if abr
-        areaBorderRouters.remove(nodeId);
     }
 
     @Override
@@ -96,10 +120,5 @@ public class OSPFArea extends RoutingGraph {
         // Remove edge cost
         Map<String, Float> costs = edgeCosts.get(srcId);
         costs.remove(destId);
-    }
-
-    // compute the shortest paths from one abr to all other routers
-    public void computePathsForABR(String abrId){
-        areaBorderRouters.put(abrId, this.buildSpanningTree(abrId));
     }
 }

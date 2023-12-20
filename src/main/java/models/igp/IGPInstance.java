@@ -15,4 +15,5 @@ public abstract class IGPInstance {
     public Map<Pair<String, String>, IGPPrefix> prefixes;
     public Map<String, RoutingGraph> subgraphs;
     public abstract void handleNLRI(Attribute attributes, NLRI nlri);
+    public abstract IGPPath getShortestPath(String ingressIp, String egressIp);
 }

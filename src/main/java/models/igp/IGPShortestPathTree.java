@@ -24,6 +24,10 @@ public class IGPShortestPathTree {
         costs.put(childId, cost);
     }
 
+    public Float getCost(String dstNodeId){
+        return costs.get(dstNodeId);
+    }
+
     // get path based on spanning tree
     public IGPPath getPath(String dstNodeId){
         String currRouterId = dstNodeId;
