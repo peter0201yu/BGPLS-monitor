@@ -31,3 +31,13 @@ Path: src 10.0.0.12/30 -> 10.0.1.4/30
 <img src="Structure.png">
 
 <img src="SPAlgo.png">
+
+## Future Work
+
+We identify three directions of future work:
+
+1. Enhancing the efficiency of computing the shortest global path. Currently, this process involves computing numerous shortest paths within subgraphs, and we haven't been able to get optimization techniques such as shortest path trees to work. 
+
+2. While our current implementation accommodates OSPF (Open Shortest Path First) as the LS protocol, our code, i.e. our generalized graph representation, is extensible to supporting IS-IS (Intermediate System to Intermediate System). 
+
+3. One can implement segment routing as a BGP-LS extension using our current code as the foundation, which will be a significant improvement in functionality from our basic BGP-LS monitor.
